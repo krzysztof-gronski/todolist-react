@@ -9,7 +9,7 @@ let tasks = [
     { id: 1, content: "some task", done: true},
     { id: 2, content: "some taskrerer", done: true}
 ];
-let hideDoneTasks = true;
+let hideDoneTasks = false;
 
 function App() {
     return (
