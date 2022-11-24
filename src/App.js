@@ -4,6 +4,7 @@ import Form from "./Form";
 import TasksList from "./TasksList";
 import Header from "./Header";
 import Container from "./Container";
+import './index.css';
 
 let tasks = [
     { id: 1, content: "some task", done: true},
