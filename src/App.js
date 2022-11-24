@@ -14,7 +14,7 @@ let hideDoneTasks = false;
 function App() {
     return (
 
-        <Container>
+        <Container className="container">
             <Section
                 header={<Header headerTitle="Dodaj nowe zadanie" tasks={tasks}/>}
                 body={<Form />}
