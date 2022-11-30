@@ -1,13 +1,13 @@
 import "./style.css";
 import React from "react";
 
-const Header = ({ headerTitle, body, tasks, hideDone }) => {
+const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone }) => {
     let headerButtons;
     if (body) {
         if (tasks.length) {
             headerButtons =
                 <React.Fragment>
-                    <button className="form__button form__button--listHeader">{hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
+                    <button className="form__button form__button--listHeader" onClick={toggleHideDone}>{hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
                     <button className="form__button form__button--listHeader" disabled={tasks.every(({ done }) => done)}>Ukończ wszystkie</button>
                 </React.Fragment>;
         }
