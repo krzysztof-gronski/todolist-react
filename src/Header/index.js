@@ -1,14 +1,14 @@
 import "./style.css";
 import React from "react";
 
-const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone }) => {
+const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone, setAllDone}) => {
     let headerButtons;
     if (body) {
         if (tasks.length) {
             headerButtons =
                 <React.Fragment>
                     <button className="form__button form__button--listHeader" onClick={toggleHideDone}>{hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
-                    <button className="form__button form__button--listHeader" disabled={tasks.every(({ done }) => done)}>Ukończ wszystkie</button>
+                    <button className="form__button form__button--listHeader" disabled={tasks.every(({ done }) => done)} onClick={setAllDone}>Ukończ wszystkie</button>
                 </React.Fragment>;
         }
         return <header className="section__header">
