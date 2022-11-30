@@ -1,7 +1,7 @@
 import "./style.css";
 
-const TasksList = ({tasks, hideDoneTasks}) => {
-        const tasksListItemClasses = hideDoneTasks ? "tasksList__tasksListItem--hidden" : "";
+const TasksList = ({tasks, hideDone}) => {
+        const tasksListItemClasses = hideDone ? "tasksList__tasksListItem--hidden" : "";
         return <ul className="tasksList">
                 {
                 tasks.map(task=>(

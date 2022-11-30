@@ -9,7 +9,7 @@ let tasks = [
     { id: 1, content: "some task", done: true},
     { id: 2, content: "some taskrerer", done: true}
 ];
-let hideDoneTasks = false;
+let hideDone = false;
 
 function App() {
     return (
@@ -20,8 +20,8 @@ function App() {
                 body={<Form />}
             />
             <Section
-                header={<Header headerTitle="Lista zadań" body={true} tasks={tasks} hideDoneTasks={hideDoneTasks}/>}
-                body={<TasksList tasks={tasks} hideDoneTasks={hideDoneTasks}/>}
+                header={<Header headerTitle="Lista zadań" body={true} tasks={tasks} hideDone={hideDone}/>}
+                body={<TasksList tasks={tasks} hideDone={hideDone}/>}
             />
         </Container>
     );
