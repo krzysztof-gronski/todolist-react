@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Section from "./Section";
 import Form from "./Form";
 import TasksList from "./TasksList";
@@ -7,8 +7,16 @@ import Header from "./Header";
 import Container from "./Container";
 
 function App() {
-    const [hideDone, setHideDone] = useState(false);
-    const [tasks, setTasks] = useState([]);
+    const [hideDone, setHideDone] = useState(localStorage.getItem("hideDone"));
+    const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
+
+    useEffect(() => {
+        localStorage.setItem("hideDone", hideDone);
+    }, [hideDone]);
 
     const toggleHideDone = () => {
         setHideDone(hideDone => !hideDone);
@@ -54,7 +62,7 @@ function App() {
         <Container className="container">
             <Section
                 header={<Header headerTitle="Dodaj nowe zadanie" tasks={tasks} />}
-                body={<Form addNewTask={addNewTask}/>}
+                body={<Form addNewTask={addNewTask} />}
             />
             <Section
                 header={<Header headerTitle="Lista zadań" body={true} tasks={tasks} hideDone={hideDone} toggleHideDone={toggleHideDone} setAllDone={setAllDone} />}
