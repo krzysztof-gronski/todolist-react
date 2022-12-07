@@ -1,7 +1,7 @@
 import "./style.css";
 import React from "react";
 
-const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone, setAllDone}) => {
+const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone, setAllDone }) => {
     let headerButtons;
     if (body) {
         if (tasks.length) {
@@ -13,7 +13,6 @@ const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone, setAllDone
         }
         return <header className="section__header">
             <h2 className="section__h2--listHeader">{headerTitle}</h2>
-
             <div className="headerButtons">{headerButtons}</div>
         </header>;
     }
