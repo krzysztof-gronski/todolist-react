@@ -26,7 +26,7 @@ export const ButtonsHeader = styled.div`
     grid-template-columns: auto auto;
     grid-gap: 30px;
 
-@media (max-width: 767px) {
+@media (max-width: ${({theme})=>theme.breakpoints.mobile}px) {
         grid-template-columns: auto;
         justify-content: center;
     }
@@ -34,13 +34,13 @@ export const ButtonsHeader = styled.div`
 
 export const ListHeaderButton = styled.button`
     transition: 1s;
-    color: hsl(180, 100%, 25%);
+    color: ${({theme})=>theme.colors.primary};
     border: none;
     background: rgba(255, 255, 255, 0);
     padding: 0;
 
     &:hover{
-        color: hsl(180, 100%, 30%);
+        color: ${({theme})=>theme.colors.primaryHover};
         cursor: pointer;
     }
     &:disabled{
