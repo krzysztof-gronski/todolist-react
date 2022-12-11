@@ -1,27 +1,26 @@
-.tasksList {
+import styled,{css} from "styled-components";
+
+export const TasksListContent = styled.ul`
     list-style: none;
     margin: 0;
     padding: 0;
-}
+`;
 
-.tasksList__tasksListItem {
+export const ListItem = styled.li`
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-gap: 10px;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-}
 
-.tasksList__tasksListItem--done {
-    text-decoration: line-through;
-}
+    ${({hidden})=>hidden && css`
+        display: none;
+    `
+    }
+`;
 
-.tasksList__tasksListItem--hidden {
-    display: none;
-}
-
-.tasksList__button {
+export const Button = styled.button`
     width: 30px;
     height: 30px;
     border: none;
@@ -30,25 +29,42 @@
     padding: 0px;
     text-decoration: none;
     transition: 1s;
-}
 
-.tasksList__button:hover {
+    &:hover {
     background-color: hsl(120, 100%, 35%);
     cursor: pointer;
-}
-
-.tasksList__button:active {
+    }
+    &:active {
     background-color: hsl(120, 100%, 40%);
-}
+    }
+`;
 
-.tasksList__button--remove {
+export const RemoveButton = styled(Button)`
     background-color: hsl(348, 83%, 47%);
-}
 
-.tasksList__button--remove:hover {
+    &:hover {
     background-color: hsl(348, 83%, 57%);
-}
-
-.tasksList__button--remove:active {
+    }
+    &:active {
     background-color: hsl(348, 83%, 62%);
-}
+    }
+`;
+
+export const ListItemContent = styled.span`
+    ${({done})=>done && css`
+    text-decoration: line-through;
+    `
+    }
+`;
+
+
+
+
+
+
+
+
+
+
+
+

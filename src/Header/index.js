@@ -1,5 +1,5 @@
-import "./style.css";
 import React from "react";
+import {SectionHeader,ListHeader,ButtonsHeader,ListHeaderButton} from "./styled";
 
 const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone, setAllDone }) => {
     let headerButtons;
@@ -7,16 +7,16 @@ const Header = ({ headerTitle, body, tasks, hideDone, toggleHideDone, setAllDone
         if (tasks.length) {
             headerButtons =
                 <React.Fragment>
-                    <button className="form__button form__button--listHeader" onClick={toggleHideDone}>{hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
-                    <button className="form__button form__button--listHeader" disabled={tasks.every(({ done }) => done)} onClick={setAllDone}>Ukończ wszystkie</button>
+                    <ListHeaderButton onClick={toggleHideDone}>{hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}</ListHeaderButton>
+                    <ListHeaderButton disabled={tasks.every(({ done }) => done)} onClick={setAllDone}>Ukończ wszystkie</ListHeaderButton>
                 </React.Fragment>;
         }
-        return <header className="section__header">
-            <h2 className="section__h2--listHeader">{headerTitle}</h2>
-            <div className="headerButtons">{headerButtons}</div>
-        </header>;
+        return <SectionHeader>
+            <ListHeader>{headerTitle}</ListHeader>
+            <ButtonsHeader>{headerButtons}</ButtonsHeader>
+        </SectionHeader>;
     }
-    return <h2 className="section__header">{headerTitle}</h2>;
+    return <SectionHeader>{headerTitle}</SectionHeader>;
 };
 
 export default Header;

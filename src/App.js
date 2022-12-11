@@ -7,9 +7,8 @@ import Header from "./Header";
 import Container from "./Container";
 
 function App() {
-    const [hideDone, setHideDone] = useState(JSON.parse(localStorage.getItem("hideDone")) ? true : false);
-    console.log(localStorage.getItem("hideDone"));
-    const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+    const [hideDone, setHideDone] = useState(JSON.parse(localStorage.getItem("hideDone")) || false);
+    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -60,7 +59,7 @@ function App() {
 
     return (
 
-        <Container className="container">
+        <Container>
             <Section
                 header={<Header headerTitle="Dodaj nowe zadanie" tasks={tasks} />}
                 body={<Form addNewTask={addNewTask} />}
