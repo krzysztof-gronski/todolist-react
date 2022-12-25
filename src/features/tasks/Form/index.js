@@ -3,15 +3,11 @@ import { QuestionForm, Input, Button } from "./styled";
 
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import {addNewTask} from "../tasksSlice";
-
-
-
-
+import { addTask } from "../tasksSlice";
 
 const Form = ({ inputRef }) => {
     const [newTaskContent, setNewTaskContent] = useState("");
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -19,13 +15,15 @@ const Form = ({ inputRef }) => {
         if (!newTaskContentTrimmed) {
             return;
         }
-        dispatch(addNewTask({
-            content: newTaskContentTrimmed,	
-            done: false,		
-            id: nanoid(),}));	
+        dispatch(addTask({
+            content: newTaskContentTrimmed,
+            done: false,
+            id: nanoid(),
+        }));
         setNewTaskContent("");
         inputRef.current.focus();
     };
+    
     return (
         <QuestionForm onSubmit={onFormSubmit}>
             <Input
