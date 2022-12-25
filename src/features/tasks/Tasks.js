@@ -5,13 +5,11 @@ import Form from "./Form";
 import TasksList from "./TasksList";
 import Header from "./Header";
 import Container from "../../common/Container";
-import { useTasks } from "../../useTasks.js";
 import { selectTasks } from "./tasksSlice";
 
 function Tasks() {
     const inputRef = useRef(null);
     const { tasks } = useSelector(selectTasks);
-    const { removeTask, setAllDone } = useTasks();
 
     useEffect(() => {
         inputRef.current.focus();
@@ -24,12 +22,12 @@ function Tasks() {
     return (
         <Container>
             <Section
-                header={<Header headerTitle="Dodaj nowe zadanie" tasks={tasks} />}
+                header={<Header headerTitle="Dodaj nowe zadanie" />}
                 body={<Form inputRef={inputRef} />}
             />
             <Section
-                header={<Header headerTitle="Lista zadań" body={true} tasks={tasks} setAllDone={setAllDone} />}
-                body={<TasksList tasks={tasks} removeTask={removeTask} inputRef={inputRef} />}
+                header={<Header headerTitle="Lista zadań" body={true} />}
+                body={<TasksList inputRef={inputRef} />}
             />
         </Container>
     );

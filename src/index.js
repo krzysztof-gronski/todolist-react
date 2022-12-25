@@ -5,8 +5,7 @@ import store from './store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'styled-components';
-import { mainTheme, GlobalStyle } from "./styled.js";
-import { addTask } from "./features/tasks/tasksSlice";
+import { mainTheme, GlobalStyle } from "./styled";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
