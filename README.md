@@ -12,7 +12,6 @@ A handy list used to save scheduled tasks. Allows you to add, delete and mark ta
 - HTML
 - CSS
 - JS ES6+
-- BEM convention
 - React
 - Redux
 
