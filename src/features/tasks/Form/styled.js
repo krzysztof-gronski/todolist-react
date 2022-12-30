@@ -18,7 +18,7 @@ export const Input = styled.input`
 export const Button = styled.button`
     padding: 10px;
     background: ${({theme})=>theme.colors.primary};
-    color: white;
+color: white;
     border: none;
     transition: 1s;
 
@@ -30,7 +30,7 @@ export const Button = styled.button`
 
     &:active {
     padding: 10px;
-    background: ${({theme})=>theme.colors.primaryActive};
+background: ${({theme})=>theme.colors.primaryActive};
     color: white;
     border: none;
 };

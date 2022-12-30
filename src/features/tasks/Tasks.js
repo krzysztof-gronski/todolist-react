@@ -9,7 +9,7 @@ import { selectTasks } from "./tasksSlice";
 
 function Tasks() {
     const inputRef = useRef(null);
-    const { tasks } = useSelector(selectTasks);
+    const tasks = useSelector(selectTasks);
 
     useEffect(() => {
         inputRef.current.focus();
