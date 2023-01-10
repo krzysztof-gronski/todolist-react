@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Link, Switch, Route, Redirect } from "react-router-dom";
-import TasksPage from "./features/tasks/Tasks";
+import TasksPage from "./features/tasks/TasksPage";
 import About from "./features/about/About";
-
+import TaskPage from "./features/tasks/TaskPage";
 
 const App = () => (
   <BrowserRouter basename="/todolist">
@@ -18,6 +18,9 @@ const App = () => (
     </nav>
 
     <Switch>
+      <Route path="/zadania/:id">
+        <TaskPage />
+      </Route>
       <Route path="/zadania">
         <TasksPage />
       </Route>
@@ -25,7 +28,7 @@ const App = () => (
         <About />
       </Route>
       <Route path="/">
-        <Redirect to="/zadania"/>
+        <Redirect to="/zadania" />
       </Route>
     </Switch>
   </BrowserRouter>

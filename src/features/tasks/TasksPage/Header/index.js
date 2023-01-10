@@ -7,9 +7,9 @@ import {
   toggleHideDone,
   setAllDone,
   getSampleTasks,
-} from "../tasksSlice";
+} from "../../tasksSlice";
 import { SectionHeader, ListHeader, ButtonsHeader } from "./styled";
-import { HeaderButton } from "../styled";
+import { HeaderButton } from "../../styled";
 
 const Header = ({ headerTitle, body, sampleTasksFlag }) => {
   let headerButtons;

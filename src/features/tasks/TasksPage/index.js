@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import Section from "../../common/Section";
+import Section from "../../../common/Section";
 import Form from "./Form";
 import TasksList from "./TasksList";
 import Header from "./Header";
-import Container from "../../common/Container";
-import { selectTasks } from "./tasksSlice";
+import Container from "../../../common/Container";
+import { selectTasks } from "../tasksSlice";
 
 function TasksPage() {
   const inputRef = useRef(null);
