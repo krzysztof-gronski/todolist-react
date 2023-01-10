@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getSavedHideDone, getSavedTasks } from "../../common/localStorage";
-import { fetchSampleTasks } from "./api";
 
 const tasksSlice = createSlice({
   name: "tasks",

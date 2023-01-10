@@ -6,9 +6,8 @@ import TasksList from "./TasksList";
 import Header from "./Header";
 import Container from "../../common/Container";
 import { selectTasks } from "./tasksSlice";
-import { HeaderButton } from "./styled";
 
-function Tasks() {
+function TasksPage() {
   const inputRef = useRef(null);
   const tasks = useSelector(selectTasks);
 
@@ -23,7 +22,9 @@ function Tasks() {
   return (
     <Container title={"Lista zadań"}>
       <Section
-        header={<Header headerTitle="Dodaj nowe zadanie" />}
+        header={
+          <Header headerTitle="Dodaj nowe zadanie" sampleTasksFlag={true} />
+        }
         body={<Form inputRef={inputRef} />}
       />
       <Section
@@ -33,4 +34,4 @@ function Tasks() {
     </Container>
   );
 }
-export default Tasks;
+export default TasksPage;

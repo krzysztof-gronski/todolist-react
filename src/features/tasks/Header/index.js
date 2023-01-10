@@ -11,7 +11,7 @@ import {
 import { SectionHeader, ListHeader, ButtonsHeader } from "./styled";
 import { HeaderButton } from "../styled";
 
-const Header = ({ headerTitle, body }) => {
+const Header = ({ headerTitle, body, sampleTasksFlag }) => {
   let headerButtons;
   const areEveryTasksDone = useSelector(selectAreEveryTasksDone);
   const areTasksEmpty = useSelector(selectAreTasksEmpty);
@@ -41,11 +41,19 @@ const Header = ({ headerTitle, body }) => {
         <ButtonsHeader>{headerButtons}</ButtonsHeader>
       </SectionHeader>
     );
+  } else if (sampleTasksFlag) {
+    return (
+      <SectionHeader>
+        <ListHeader>{headerTitle}</ListHeader>
+        <HeaderButton onClick={() => dispatch(getSampleTasks())}>
+          Pobierz przykładowe zadania
+        </HeaderButton>
+      </SectionHeader>
+    );
   }
   return (
     <SectionHeader>
       <ListHeader>{headerTitle}</ListHeader>
-      <HeaderButton onClick={()=>dispatch(getSampleTasks())}>Pobierz przykładowe zadania</HeaderButton>
     </SectionHeader>
   );
 };
