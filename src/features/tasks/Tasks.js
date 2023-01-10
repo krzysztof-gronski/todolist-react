@@ -6,30 +6,31 @@ import TasksList from "./TasksList";
 import Header from "./Header";
 import Container from "../../common/Container";
 import { selectTasks } from "./tasksSlice";
+import { HeaderButton } from "./styled";
 
 function Tasks() {
-    const inputRef = useRef(null);
-    const tasks = useSelector(selectTasks);
+  const inputRef = useRef(null);
+  const tasks = useSelector(selectTasks);
 
-    useEffect(() => {
-        inputRef.current.focus();
-    }, []);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
-    useEffect(() => {
-        inputRef.current.focus();
-    }, [tasks]);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [tasks]);
 
-    return (
-        <Container>
-            <Section
-                header={<Header headerTitle="Dodaj nowe zadanie" />}
-                body={<Form inputRef={inputRef} />}
-            />
-            <Section
-                header={<Header headerTitle="Lista zadań" body={true} />}
-                body={<TasksList inputRef={inputRef} />}
-            />
-        </Container>
-    );
+  return (
+    <Container>
+      <Section
+        header={<Header headerTitle="Dodaj nowe zadanie" />}
+        body={<Form inputRef={inputRef} />}
+      />
+      <Section
+        header={<Header headerTitle="Lista zadań" body={true} />}
+        body={<TasksList inputRef={inputRef} />}
+      />
+    </Container>
+  );
 }
 export default Tasks;

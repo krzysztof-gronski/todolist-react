@@ -1,35 +1,38 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAreEveryTasksDone, selectAreTasksEmpty, selectHideDone, toggleHideDone, setAllDone } from "../tasksSlice";
 import {
-  SectionHeader,
-  ListHeader,
-  ButtonsHeader,
-  ListHeaderButton,
-} from "./styled";
+  selectAreEveryTasksDone,
+  selectAreTasksEmpty,
+  selectHideDone,
+  toggleHideDone,
+  setAllDone,
+  getSampleTasks,
+} from "../tasksSlice";
+import { SectionHeader, ListHeader, ButtonsHeader } from "./styled";
+import { HeaderButton } from "../styled";
 
 const Header = ({ headerTitle, body }) => {
   let headerButtons;
   const areEveryTasksDone = useSelector(selectAreEveryTasksDone);
   const areTasksEmpty = useSelector(selectAreTasksEmpty);
   const hideDone = useSelector(selectHideDone);
-  
+
   const dispatch = useDispatch();
 
   if (body) {
     if (!areTasksEmpty) {
       headerButtons = (
-        <React.Fragment>
-          <ListHeaderButton onClick={() => dispatch(toggleHideDone())}>
+        <>
+          <HeaderButton onClick={() => dispatch(toggleHideDone())}>
             {hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}
-          </ListHeaderButton>
-          <ListHeaderButton
+          </HeaderButton>
+          <HeaderButton
             disabled={areEveryTasksDone}
             onClick={() => dispatch(setAllDone())}
           >
             Ukończ wszystkie
-          </ListHeaderButton>
-        </React.Fragment>
+          </HeaderButton>
+        </>
       );
     }
     return (
@@ -39,7 +42,12 @@ const Header = ({ headerTitle, body }) => {
       </SectionHeader>
     );
   }
-  return <SectionHeader>{headerTitle}</SectionHeader>;
+  return (
+    <SectionHeader>
+      <ListHeader>{headerTitle}</ListHeader>
+      <HeaderButton onClick={()=>dispatch(getSampleTasks())}>Pobierz przykładowe zadania</HeaderButton>
+    </SectionHeader>
+  );
 };
 
 export default Header;
