@@ -21,7 +21,7 @@ function Tasks() {
   }, [tasks]);
 
   return (
-    <Container>
+    <Container title={"Lista zadań"}>
       <Section
         header={<Header headerTitle="Dodaj nowe zadanie" />}
         body={<Form inputRef={inputRef} />}
