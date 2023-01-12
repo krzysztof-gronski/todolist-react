@@ -10,11 +10,6 @@ export const QuestionForm = styled.form`
     };
 `;
 
-export const Input = styled.input`
-    padding: 10px;
-    border: 1px solid #ddd;
-`;
-
 export const Button = styled.button`
     padding: 10px;
     background: ${({theme})=>theme.colors.primary};

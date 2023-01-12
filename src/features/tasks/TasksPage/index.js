@@ -6,6 +6,7 @@ import TasksList from "./TasksList";
 import Header from "./Header";
 import Container from "../../../common/Container";
 import { selectTasks } from "../tasksSlice";
+import Search from "./Search";
 
 function TasksPage() {
   const inputRef = useRef(null);
@@ -26,6 +27,12 @@ function TasksPage() {
           <Header headerTitle="Dodaj nowe zadanie" sampleTasksFlag={true} />
         }
         body={<Form inputRef={inputRef} />}
+      />
+      <Section
+        header={
+          <Header headerTitle="Wyszukiwarka"/>
+        }
+        body={<Search/>}
       />
       <Section
         header={<Header headerTitle="Lista zadań" body={true} />}

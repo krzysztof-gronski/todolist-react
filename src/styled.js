@@ -1,4 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+const activeClassName = "active";
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -28,3 +31,9 @@ export const mainTheme = {
         mobile: 767,
     },
 };	
+
+export const StyledNavLink = styled(NavLink).attrs(()=>({activeClassName,}))`
+&.${activeClassName}{
+  color: red;
+}
+`;

@@ -1,34 +1,36 @@
 import React from "react";
-import { BrowserRouter, Link, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import TasksPage from "./features/tasks/TasksPage";
 import About from "./features/about/About";
 import TaskPage from "./features/tasks/TaskPage";
+import { StyledNavLink } from "./styled";
+import { toAbout, toTask, toTasks } from "./routing";
 
 const App = () => (
   <BrowserRouter basename="/todolist">
     <nav>
       <ul>
         <li>
-          <Link to="/zadania">Zadania</Link>
+          <StyledNavLink to={toTasks()}>Zadania</StyledNavLink>
         </li>
         <li>
-          <Link to="/about">O autorze</Link>
+          <StyledNavLink to={toAbout()}>O autorze</StyledNavLink>
         </li>
       </ul>
     </nav>
 
     <Switch>
-      <Route path="/zadania/:id">
+      <Route path={toTask()}>
         <TaskPage />
       </Route>
-      <Route path="/zadania">
+      <Route path={toTasks()}>
         <TasksPage />
       </Route>
-      <Route path="/about">
+      <Route path={toAbout()}>
         <About />
       </Route>
       <Route path="/">
-        <Redirect to="/zadania" />
+        <Redirect to={toTasks()}/>
       </Route>
     </Switch>
   </BrowserRouter>

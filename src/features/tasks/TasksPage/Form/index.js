@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { QuestionForm, Input, Button } from "./styled";
+import { QuestionForm, Button } from "./styled";
+import Input from "../../Input";
 
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
