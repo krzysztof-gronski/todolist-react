@@ -3,21 +3,12 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import TasksPage from "./features/tasks/TasksPage";
 import About from "./features/about/About";
 import TaskPage from "./features/tasks/TaskPage";
-import { StyledNavLink } from "./styled";
 import { toAbout, toTask, toTasks } from "./routing";
+import Navigation from "./Navigation";
 
 const App = () => (
   <BrowserRouter basename="/todolist">
-    <nav>
-      <ul>
-        <li>
-          <StyledNavLink to={toTasks()}>Zadania</StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to={toAbout()}>O autorze</StyledNavLink>
-        </li>
-      </ul>
-    </nav>
+    <Navigation/>
 
     <Switch>
       <Route path={toTask()}>
