@@ -1,8 +1,7 @@
 import axios from "axios";
 
-export const fetchSampleTasks = async () => {
+export const getSampleTasks = async () => {
   const response = await axios.get("/todolist-react/sampleTasks.json");
-  //alert(response.data);
   if (response.statusText !== "OK") {
     new Error(response.statusText);
   }

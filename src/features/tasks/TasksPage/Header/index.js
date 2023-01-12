@@ -6,7 +6,7 @@ import {
   selectHideDone,
   toggleHideDone,
   setAllDone,
-  getSampleTasks,
+  fetchSampleTasks,
 } from "../../tasksSlice";
 import { SectionHeader, ListHeader, ButtonsHeader } from "./styled";
 import { HeaderButton } from "../../styled";
@@ -45,7 +45,7 @@ const Header = ({ headerTitle, body, sampleTasksFlag }) => {
     return (
       <SectionHeader>
         <ListHeader>{headerTitle}</ListHeader>
-        <HeaderButton onClick={() => dispatch(getSampleTasks())}>
+        <HeaderButton onClick={() => dispatch(fetchSampleTasks())}>
           Pobierz przykładowe zadania
         </HeaderButton>
       </SectionHeader>
