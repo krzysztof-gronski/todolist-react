@@ -1,17 +1,17 @@
 import React from "react";
-import { StyledNavLink } from "../common/StyledLink/styled";
 import { toAbout, toTasks } from "../routing";
+import { Item, List, StyledNavLink } from "./styled";
 
 const Navigation = () => (
   <nav>
-    <ul>
-      <li>
+    <List>
+      <Item>
         <StyledNavLink to={toTasks()}>Zadania</StyledNavLink>
-      </li>
-      <li>
+      </Item>
+      <Item>
         <StyledNavLink to={toAbout()}>O autorze</StyledNavLink>
-      </li>
-    </ul>
+      </Item>
+    </List>
   </nav>
 );
 
