@@ -7,6 +7,8 @@ const tasksSlice = createSlice({
     tasks: getSavedTasks(),
     hideDone: getSavedHideDone(),
     loading: false,
+    loadingError: false,
+    sampleTaskButtonRef: null,
   },
   reducers: {
     addTask: ({ tasks }, { payload: task }) => {
@@ -35,7 +37,13 @@ const tasksSlice = createSlice({
     },
     fetchSampleTasksError: (state) => {
       state.loading = false;
-      alert("Loading error...");
+      state.loadingError = true;
+    },
+    clearLoadingError: (state) => {
+      state.loadingError = false;
+    },
+    setSampleTaskButtonRef: (state, { payload: sampleTaskButtonRef }) => {
+      state.sampleTaskButtonRef = sampleTaskButtonRef;
     },
   },
 });
@@ -51,6 +59,8 @@ export const {
   fetchSampleTasks,
   fetchSampleTasksSuccess,
   fetchSampleTasksError,
+  clearLoadingError,
+  setSampleTaskButtonRef,
 } = tasksSlice.actions;
 export const selectTasksState = (state) => state.tasks;
 export const selectTasks = (state) => selectTasksState(state).tasks;
@@ -70,5 +80,9 @@ export const selectTasksByQuery = (state, query) => {
   );
 };
 export const selectLoading = (state) => selectTasksState(state).loading;
+export const selectLoadingError = (state) =>
+  selectTasksState(state).loadingError;
+export const selectSampleTaskButtonRef = (state) =>
+  selectTasksState(state).sampleTaskButtonRef;
 
 export default tasksSlice.reducer;

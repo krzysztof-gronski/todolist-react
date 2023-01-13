@@ -11,7 +11,7 @@ import { saveHideDone, saveTasks } from "../../common/localStorage";
 
 function* getSampleTasksWorker() {
   try {
-    delay(1000);
+    yield delay(1000);
     const sampleTasks = yield call(getSampleTasks);
     yield put(fetchSampleTasksSuccess(sampleTasks));
   } catch (error) {
@@ -26,7 +26,14 @@ function* saveState() {
   yield call(saveHideDone, hideDone);
 }
 
+function* alertLoadingError() {
+  //yield put(clearLoadingError());
+  //yield call(handleAlertLoadingError);
+  
+}
+
 export function* tasksSaga() {
   yield takeLatest(fetchSampleTasks.type, getSampleTasksWorker);
+  yield takeLatest(fetchSampleTasksError.type, alertLoadingError);
   yield takeEvery("*", saveState);
 }
