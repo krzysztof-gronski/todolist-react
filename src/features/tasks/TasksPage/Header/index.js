@@ -6,10 +6,10 @@ import {
   selectHideDone,
   toggleHideDone,
   setAllDone,
-  fetchSampleTasks,
 } from "../../tasksSlice";
+import { GetSampleTasksButton } from "../GetSampleTasksButton";
+import { StyledHeaderButton } from "../HeaderButton";
 import { SectionHeader, ListHeader, ButtonsHeader } from "./styled";
-import { HeaderButton } from "../../styled";
 
 const Header = ({ headerTitle, body, sampleTasksFlag }) => {
   let headerButtons;
@@ -23,15 +23,15 @@ const Header = ({ headerTitle, body, sampleTasksFlag }) => {
     if (!areTasksEmpty) {
       headerButtons = (
         <>
-          <HeaderButton onClick={() => dispatch(toggleHideDone())}>
+          <StyledHeaderButton onClick={() => dispatch(toggleHideDone())}>
             {hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}
-          </HeaderButton>
-          <HeaderButton
+          </StyledHeaderButton>
+          <StyledHeaderButton
             disabled={areEveryTasksDone}
             onClick={() => dispatch(setAllDone())}
           >
             Ukończ wszystkie
-          </HeaderButton>
+          </StyledHeaderButton>
         </>
       );
     }
@@ -45,9 +45,7 @@ const Header = ({ headerTitle, body, sampleTasksFlag }) => {
     return (
       <SectionHeader>
         <ListHeader>{headerTitle}</ListHeader>
-        <HeaderButton onClick={() => dispatch(fetchSampleTasks())}>
-          Pobierz przykładowe zadania
-        </HeaderButton>
+        <GetSampleTasksButton/>
       </SectionHeader>
     );
   }

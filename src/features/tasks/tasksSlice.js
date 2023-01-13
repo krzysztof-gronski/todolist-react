@@ -69,5 +69,6 @@ export const selectTasksByQuery = (state, query) => {
     content.toUpperCase().includes(query.trim().toUpperCase())
   );
 };
+export const selectLoading = (state) => selectTasksState(state).loading;
 
 export default tasksSlice.reducer;
