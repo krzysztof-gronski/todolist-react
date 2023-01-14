@@ -14,7 +14,7 @@ function TaskPage() {
       <Section
         header={
           <Header
-            headerTitle={task ? task.content : "Nie znaleziono zadania 🤨"}
+            headerTitle={task ? task.content : "Nie znaleziono zadania o podanym ID 🤨"}
           />
         }
         body={

@@ -1,4 +1,11 @@
-import { takeEvery, call, put, select, takeLatest, delay } from "redux-saga/effects";
+import {
+  takeEvery,
+  call,
+  put,
+  select,
+  takeLatest,
+  delay,
+} from "redux-saga/effects";
 import {
   fetchSampleTasks,
   fetchSampleTasksError,
@@ -10,10 +17,12 @@ import { getSampleTasks } from "./api";
 import { saveHideDone, saveTasks } from "../../common/localStorage";
 
 function* getSampleTasksWorker() {
+  let sampleTasks;
   try {
     yield delay(1000);
-    const sampleTasks = yield call(getSampleTasks);
-    yield put(fetchSampleTasksSuccess(sampleTasks));
+    sampleTasks = yield call(getSampleTasks);
+    if (!sampleTasks) yield put(fetchSampleTasksError());
+    else yield put(fetchSampleTasksSuccess(sampleTasks));
   } catch (error) {
     yield put(fetchSampleTasksError());
   }
