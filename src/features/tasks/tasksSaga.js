@@ -26,14 +26,7 @@ function* saveState() {
   yield call(saveHideDone, hideDone);
 }
 
-function* alertLoadingError() {
-  //yield put(clearLoadingError());
-  //yield call(handleAlertLoadingError);
-  
-}
-
 export function* tasksSaga() {
   yield takeLatest(fetchSampleTasks.type, getSampleTasksWorker);
-  yield takeLatest(fetchSampleTasksError.type, alertLoadingError);
   yield takeEvery("*", saveState);
 }

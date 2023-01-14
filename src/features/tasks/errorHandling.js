@@ -18,5 +18,5 @@ export const useLoadingErrorAlert = (loadingError, sampleTaskButtonRef) => {
         dispatch(clearLoadingError());
       })();
     }
-  }, [loadingError,sampleTaskButtonRef,dispatch]);
+  });
 };

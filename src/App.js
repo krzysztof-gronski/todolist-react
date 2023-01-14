@@ -4,7 +4,7 @@ import TasksPage from "./features/tasks/TasksPage";
 import About from "./features/about/About";
 import TaskPage from "./features/tasks/TaskPage";
 import { toAbout, toTask, toTasks } from "./routing";
-import Navigation from "./Navigation";
+import Navigation from "./common/Navigation";
 
 const App = () => (
   <BrowserRouter basename="/todolist">

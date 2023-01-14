@@ -1,5 +1,5 @@
 import React from "react";
-import { toAbout, toTasks } from "../routing";
+import { toAbout, toTasks } from "../../routing";
 import { Item, List, StyledNavLink } from "./styled";
 
 const Navigation = () => (

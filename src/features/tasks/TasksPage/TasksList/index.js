@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { toTask } from "../../../../routing";
 import {
   selectHideDone,
@@ -16,6 +15,7 @@ import {
   Button,
   RemoveButton,
   ListItemContent,
+  StyledLink,
 } from "./styled";
 
 const TasksList = () => {
@@ -32,7 +32,7 @@ const TasksList = () => {
             {task.done ? "✓" : ""}
           </Button>
           <ListItemContent done={task.done}>
-            <Link to={toTask({ id: task.id })}>{task.content}</Link>
+            <StyledLink to={toTask({ id: task.id })}>{task.content}</StyledLink>
           </ListItemContent>
           <RemoveButton onClick={() => dispatch(removeTask(task.id))}>
             🗑
