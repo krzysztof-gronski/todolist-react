@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, HashRouter } from "react-router-dom";
 import TasksPage from "./features/tasks/TasksPage";
 import About from "./features/about/About";
 import TaskPage from "./features/tasks/TaskPage";
@@ -7,7 +7,7 @@ import { toAbout, toTask, toTasks } from "./routing";
 import Navigation from "./common/Navigation";
 
 const App = () => (
-  <BrowserRouter basename="/todolist-react">
+  <HashRouter>
     <Navigation/>
 
     <Switch>
@@ -24,7 +24,7 @@ const App = () => (
         <Redirect to={toTasks()}/>
       </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
