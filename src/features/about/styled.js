@@ -6,5 +6,5 @@ export const Emoticon = styled.span`
 
 export const Paragraph = styled.p`
     line-height: 2;
-    justify-content: baseline;
+    text-align: justify;
 `;

@@ -10,4 +10,5 @@ export const SectionElement = styled.section`
 export const SectionBody = styled.div`
     padding: 20px;
     margin: 0;
+    
 `;
