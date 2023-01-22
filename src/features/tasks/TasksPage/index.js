@@ -22,7 +22,7 @@ function TasksPage() {
 
   return (
     <Container title={"Lista zadań"}>
-      debugging test 0.0.1
+      debugging test 0.0.2
       <Section
         header={
           <Header headerTitle="Dodaj nowe zadanie" sampleTasksFlag={true} />
