@@ -17,23 +17,23 @@ import { getSampleTasks } from "./api";
 import { saveHideDone, saveTasks } from "../../common/localStorage";
 
 function* getSampleTasksWorker() {
-  try {
-    yield delay(1000);
-    const sampleTasks = yield call(getSampleTasks);
-    yield put(fetchSampleTasksSuccess(sampleTasks));
-  } catch (error) {
-    yield put(fetchSampleTasksError());
-  }
-
-  // let sampleTasks;
   // try {
   //   yield delay(1000);
-  //   sampleTasks = yield call(getSampleTasks);
-  //   if (!sampleTasks) yield put(fetchSampleTasksError());
-  //   else yield put(fetchSampleTasksSuccess(sampleTasks));
+  //   const sampleTasks = yield call(getSampleTasks);
+  //   yield put(fetchSampleTasksSuccess(sampleTasks));
   // } catch (error) {
   //   yield put(fetchSampleTasksError());
   // }
+
+  let sampleTasks;
+  try {
+    yield delay(1000);
+    sampleTasks = yield call(getSampleTasks);
+    if (sampleTasks.length===0) yield put(fetchSampleTasksError());
+    else yield put(fetchSampleTasksSuccess(sampleTasks));
+  } catch (error) {
+    yield put(fetchSampleTasksError());
+  }
 }
 
 function* saveState() {
