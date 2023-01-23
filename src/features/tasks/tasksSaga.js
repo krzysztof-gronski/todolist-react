@@ -24,17 +24,6 @@ function* getSampleTasksWorker() {
   } catch (error) {
     yield put(fetchSampleTasksError());
   }
-
-  // let sampleTasks;
-  // try {
-  //   yield delay(1000);
-  //   sampleTasks = yield call(getSampleTasks);
-  //   yield call(alert,sampleTasks);
-  //   if (sampleTasks.length===0) yield put(fetchSampleTasksError());
-  //   else yield put(fetchSampleTasksSuccess(sampleTasks));
-  // } catch (error) {
-  //   yield put(fetchSampleTasksError());
-  // }
 }
 
 function* saveState() {
