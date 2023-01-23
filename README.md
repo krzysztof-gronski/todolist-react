@@ -3,6 +3,7 @@
 
 ## Description
 A handy list used to save scheduled tasks. Allows you to add, delete and mark tasks as completed.
+Additional options allow you to search for tasks by query and display subpages with details of the selected task.
 
 ## Contents
 - Tasks list with input field
