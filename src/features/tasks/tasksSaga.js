@@ -20,7 +20,8 @@ function* getSampleTasksWorker() {
   try {
     yield delay(1000);
     const sampleTasks = yield call(getSampleTasks);
-    yield put(fetchSampleTasksSuccess(sampleTasks));
+    if(typeof sampleTasks === "string") yield put(fetchSampleTasksError());
+    else yield put(fetchSampleTasksSuccess(sampleTasks));
   } catch (error) {
     yield put(fetchSampleTasksError());
   }
