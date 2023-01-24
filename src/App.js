@@ -8,7 +8,7 @@ import Navigation from "./common/Navigation";
 
 const App = () => (
   <HashRouter>
-    <Navigation/>
+    <Navigation />
 
     <Switch>
       <Route path={toTask()}>
@@ -21,7 +21,7 @@ const App = () => (
         <About />
       </Route>
       <Route path="/">
-        <Redirect to={toTasks()}/>
+        <Redirect to={toTasks()} />
       </Route>
     </Switch>
   </HashRouter>

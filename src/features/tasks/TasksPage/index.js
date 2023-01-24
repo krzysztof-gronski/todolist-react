@@ -21,7 +21,7 @@ function TasksPage() {
   }, [tasks]);
 
   return (
-    <Container title={"Lista zadań tes3t"}>
+    <Container title={"Lista zadań"}>
       <Section
         header={
           <Header headerTitle="Dodaj nowe zadanie" sampleTasksFlag={true} />
@@ -29,10 +29,8 @@ function TasksPage() {
         body={<Form inputRef={inputRef} />}
       />
       <Section
-        header={
-          <Header headerTitle="Wyszukiwarka"/>
-        }
-        body={<Search/>}
+        header={<Header headerTitle="Wyszukiwarka" />}
+        body={<Search />}
       />
       <Section
         header={<Header headerTitle="Lista zadań" body={true} />}
