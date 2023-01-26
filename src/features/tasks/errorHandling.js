@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { clearLoadingError } from "./tasksSlice";
 
-export const useLoadingErrorAlert = (loadingError, sampleTaskButtonRef) => {
+export const useLoadingErrorAlert = (status, sampleTaskButtonRef) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!loadingError) {
+    if (!(status==="error")) {
       return;
     }
     (async () => {
@@ -19,5 +19,5 @@ export const useLoadingErrorAlert = (loadingError, sampleTaskButtonRef) => {
       sampleTaskButtonRef.current.classList.toggle("error");
       dispatch(clearLoadingError());
     })();
-  }, [loadingError]);
+  }, [status]);
 };

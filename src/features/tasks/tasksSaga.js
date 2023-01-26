@@ -22,10 +22,11 @@ function* getSampleTasksWorker() {
     const sampleTasks = yield call(getSampleTasks);
 
     if (typeof sampleTasks === "string") {
-      throw new Error("ihg");
-    }  //yield put(fetchSampleTasksError());
+      //yield put(fetchSampleTasksError());
+      throw Error("Error: broken JSON file");
+    }  
 
-    else yield put(fetchSampleTasksSuccess(sampleTasks));
+    yield put(fetchSampleTasksSuccess(sampleTasks));
   } catch (error) {
     yield put(fetchSampleTasksError());
   }
