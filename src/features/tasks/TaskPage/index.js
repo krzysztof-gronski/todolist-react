@@ -6,15 +6,18 @@ import { useParams } from "react-router-dom";
 import { selectTaskById } from "../tasksSlice";
 import { useSelector } from "react-redux";
 
-function TaskPage() {
+const TaskPage = () => {
   const { id } = useParams();
   const task = useSelector((state) => selectTaskById(state, id));
+
   return (
     <Container title="Szczegóły zadania">
       <Section
         header={
           <Header
-            headerTitle={task ? task.content : "Nie znaleziono zadania o podanym ID 🤨"}
+            headerTitle={
+              task ? task.content : "Nie znaleziono zadania o podanym ID 🤨"
+            }
           />
         }
         body={
@@ -28,5 +31,5 @@ function TaskPage() {
       />
     </Container>
   );
-}
+};
 export default TaskPage;

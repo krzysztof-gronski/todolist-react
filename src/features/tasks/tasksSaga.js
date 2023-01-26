@@ -20,7 +20,11 @@ function* getSampleTasksWorker() {
   try {
     yield delay(1000);
     const sampleTasks = yield call(getSampleTasks);
-    if(typeof sampleTasks === "string") yield put(fetchSampleTasksError());
+
+    if (typeof sampleTasks === "string") {
+      throw new Error("ihg");
+    }  //yield put(fetchSampleTasksError());
+
     else yield put(fetchSampleTasksSuccess(sampleTasks));
   } catch (error) {
     yield put(fetchSampleTasksError());
@@ -30,6 +34,7 @@ function* getSampleTasksWorker() {
 function* saveState() {
   const tasks = yield select(selectTasks);
   const hideDone = yield select(selectHideDone);
+
   yield call(saveTasks, tasks);
   yield call(saveHideDone, hideDone);
 }

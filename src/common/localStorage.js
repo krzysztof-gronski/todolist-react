@@ -7,9 +7,9 @@ export const getSavedHideDone = () => {
 };
 
 export const saveTasks = (tasks) => {
-    localStorage.setItem("todolist/tasks",JSON.stringify(tasks));
+  localStorage.setItem("todolist/tasks", JSON.stringify(tasks));
 };
 
 export const saveHideDone = (hideDone) => {
-    localStorage.setItem("todolist/hideDone",hideDone);
+  localStorage.setItem("todolist/hideDone", hideDone);
 };

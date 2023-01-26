@@ -8,7 +8,7 @@ import Container from "../../../common/Container";
 import { selectTasks } from "../tasksSlice";
 import Search from "./Search";
 
-function TasksPage() {
+const TasksPage = () => {
   const inputRef = useRef(null);
   const tasks = useSelector(selectTasks);
 
@@ -21,7 +21,7 @@ function TasksPage() {
   }, [tasks]);
 
   return (
-    <Container title={"Lista zadań"}>
+    <Container title={"Lista zadań test"}>
       <Section
         header={
           <Header headerTitle="Dodaj nowe zadanie" sampleTasksFlag={true} />
@@ -38,5 +38,5 @@ function TasksPage() {
       />
     </Container>
   );
-}
+};
 export default TasksPage;
